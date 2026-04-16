@@ -1,0 +1,2 @@
+# Semantic-Retrieval-and-Collaborative-Filtering-for-Explainable-Product-Recommendation-in-E-commerce
+Integrating Semantic Retrieval and Collaborative Filtering for Explainable Product Recommendation in E-commerce, a hybrid ranking strategy is introduced to merge semantic relevance scores with personalized recommendation signals, allowing the system to remain effective for both new and existing users.

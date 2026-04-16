@@ -1,0 +1,9 @@
+.DS_Store
+**/.DS_Store
+
+# Local embedding model cache (download via sentence-transformers / Hugging Face)
+all-MiniLM-L6-v2/
+
+# Spark / pipeline outputs (large; regenerate from notebooks)
+products_semantic_export/
+recommender_project/

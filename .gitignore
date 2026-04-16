@@ -4,6 +4,9 @@
 # Local embedding model cache (download via sentence-transformers / Hugging Face)
 all-MiniLM-L6-v2/
 
-# Spark / pipeline outputs (large; regenerate from notebooks)
-products_semantic_export/
-recommender_project/
+# Spark / pipeline outputs at repo root only (not under "Data files/")
+/products_semantic_export/
+/recommender_project/
+
+# Exceeds GitHub LFS per-file limit (2 GiB); keep locally or host elsewhere
+Data files/recommender_project/data/product_embedding_index.parquet

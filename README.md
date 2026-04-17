@@ -143,13 +143,6 @@ Wireless Kids Headphones with Microphones ranks first because it combines strong
 - Multimodal search (image + text)
 
 ---
-
-## Author
-
-Preye Nabena  
-MSc Artificial Intelligence & Machine Learning  
-
----
 ## Research Direction
 This project contributes to research in:
 
@@ -158,6 +151,12 @@ This project contributes to research in:
 - Explainable AI
 - Intelligent Decision Support Systems
 
+---
+
+## Author
+
+Preye Nabena  
+MSc Artificial Intelligence & Machine Learning  
 ---
 
 ## License

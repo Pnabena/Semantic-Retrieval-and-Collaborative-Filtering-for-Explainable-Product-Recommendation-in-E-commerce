@@ -1,68 +1,140 @@
-# Integrating Semantic Retrieval and Collaborative Filtering for Explainable Product Recommendation in E-commerce
+# Hybrid Recommender System with Explainable Product Search
 
 ## Overview
-This project presents the design and evaluation of a hybrid recommender system that integrates semantic retrieval with collaborative filtering to improve both recommendation quality and interpretability in e-commerce platforms.
 
-The system combines transformer-based text embeddings with user–item interaction modelling to support personalized, context-aware, and explainable product recommendations, while remaining robust in cold-start scenarios.
+This project presents a hybrid recommender system for e-commerce product discovery, combining semantic retrieval and collaborative filtering with an explainability layer.
 
-## Motivation
-Traditional recommender systems typically rely on either:
+The system is designed to:
+- Improve product relevance through semantic search
+- Personalize recommendations using user behavior (ALS)
+- Provide transparent, human-readable explanations for ranked results
 
-Content-based methods (semantic similarity)
-Collaborative filtering (user–item interactions)
+This work follows a practical data analysis and machine learning pipeline, aligning with core principles of data processing, modelling, and interpretation as emphasised in modern data analysis workflows :contentReference[oaicite:0]{index=0}.
 
-Each approach has limitations:
+---
 
-Content-based methods struggle with personalization
-Collaborative filtering struggles with cold-start users/items
-Both approaches often lack transparency in ranking decisions
+## Key Features
 
-This project addresses these challenges by integrating:
+- 🔍 **Semantic Search**
+  - Transformer-based embeddings for query understanding
+  - Cosine similarity for product retrieval
 
-Semantic understanding
-User behaviour modelling
-Explainability
+- 🤝 **Collaborative Filtering (ALS)**
+  - Learns user-item interaction patterns
+  - Provides personalized ranking signals
 
-## System Architecture
-The proposed system consists of four main components:
+- ⚖️ **Hybrid Ranking**
+  - Combines semantic relevance + ALS scores
+  - Robust to cold-start scenarios
 
-1. Semantic Retrieval Layer
-Uses transformer-based embeddings (e.g., Sentence Transformers)
-Encodes product descriptions into dense vector representations
-Supports semantic search based on user queries
-2. Collaborative Filtering Layer
-Implements Alternating Least Squares (ALS)
-Learns latent user–item interaction patterns
-Captures implicit preference signals from historical data
-3. Hybrid Ranking Module
-Combines:
-Semantic similarity scores
-Collaborative filtering scores
-Produces a unified ranking of candidate products
-Balances relevance and personalization
-4. Explanation Layer
-Generates human-readable recommendation justifications
-Uses:
-Product metadata
-Ratings and review signals
-Feature-based reasoning
+- 💡 **Explainability Layer**
+  - Generates structured explanations using:
+    - Ratings
+    - Review counts
+    - Verified purchase ratio
+    - Product features
 
-Example Output:
+- 🧠 **LLM Enhancement**
+  - TinyLlama used for polishing explanations 
 
-“This item is recommended because it is similar in style to your search and is highly rated by users with similar preferences.”
+---
 
-## Dataset
-Large-scale e-commerce dataset (product descriptions, user interactions, ratings)
-Includes:
-Product metadata
-User–item interactions
-Review-based signals
-Amazon 23' large dataset (Electronics)
+## Pipeline Breakdown
 
-## Research Direction
-This project contributes to ongoing research in:
+### 1. Data Processing
+- Product metadata and review data cleaned and structured
+- Data loaded using pandas DataFrames (tabular structure)
+- Merging datasets for enriched signals (ratings, reviews, etc.)
 
-Recommender Systems
-Natural Language Processing
-Explainable AI
-Intelligent Decision Support Systems
+### 2. Semantic Retrieval
+- Product text → embeddings
+- Query → embedding
+- Similarity search → top-k candidates
+
+### 3. Collaborative Filtering (ALS)
+- User-item interactions modeled
+- Generates personalized recommendations
+- Handles known-user scenarios
+
+### 4. Hybrid Ranking
+- Combines:
+  - semantic_score
+  - als_score
+- Produces final_score
+
+### 5. Explanation Layer
+- Feature extraction from product titles/descriptions
+- Trust signals:
+  - average rating
+  - review count
+  - verified purchase ratio
+- Generates:
+  - Overview summary
+  - Best product reasoning
+  - Quick recommendation categories
+
+---
+
+## Example Output
+
+### Query
+wireless headphones for studying
+
+
+### Overview
+For 'wireless headphones for studying', the strongest results emphasize wireless, microphone, over-ear, and portability.
+
+The top-ranked products combine strong query relevance with personalized ranking signals, while user feedback helps highlight the most reliable options.
+
+
+### Best Overall Explanation
+Wireless Kids Headphones with Microphones ranks first because it combines strong feature relevance with high engagement and consistent user feedback.
+
+
+---
+
+## Technologies Used
+
+- Python
+- PySpark
+- Pandas
+- NumPy
+- Scikit-learn
+- Hugging Face Transformers
+- ALS (Spark MLlib)
+- TinyLlama 
+- Hadoop / HDFS
+
+---
+
+## Current Status
+
+✅ Semantic retrieval  
+✅ ALS model  
+✅ Hybrid ranking  
+✅ Explanation layer  
+🔄 API integration (in progress)  
+🔄 Web interface (planned)  
+
+---
+
+## Future Improvements
+
+- Real-time API deployment (FastAPI)
+- Frontend interface for live search
+- Better ranking calibration
+- Advanced LLM-based explanations
+- Multimodal search (image + text)
+
+---
+
+## Author
+
+Preye Nabena  
+MSc Artificial Intelligence & Machine Learning  
+
+---
+
+## License
+
+This project is for academic and research purposes.

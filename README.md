@@ -7,35 +7,51 @@ This project presents a hybrid recommender system for e-commerce product discove
 The system is designed to:
 - Improve product relevance through semantic search
 - Personalize recommendations using user behavior (ALS)
-- Provide transparent, human-readable explanations for ranked results
+- Transparency via human-readable explanations for ranked results
 
-This work follows a practical data analysis and machine learning pipeline, aligning with core principles of data processing, modelling, and interpretation as emphasised in modern data analysis workflows :contentReference[oaicite:0]{index=0}.
+---
+## Motivation
+Traditional recommender systems typically rely on either:
+
+Content-based approaches (semantic similarity)
+Collaborative filtering (user–item interactions)
+
+These approaches suffer from key limitations:
+
+- Content-based methods lack personalization
+- Collaborative filtering struggles with cold-start scenarios
+- Both approaches provide limited transparency in ranking decisions
+
+This project addresses these challenges by combining retrieval, personalization, and explainability into a unified system.
 
 ---
 
 ## Key Features
 
-- 🔍 **Semantic Search**
+-  **Semantic Search**
   - Transformer-based embeddings for query understanding
-  - Cosine similarity for product retrieval
+  - Cosine similarity for product matching
 
-- 🤝 **Collaborative Filtering (ALS)**
+-  **Collaborative Filtering (ALS)**
   - Learns user-item interaction patterns
+  - Learns latent preference patterns
   - Provides personalized ranking signals
 
-- ⚖️ **Hybrid Ranking**
+-  **Hybrid Ranking**
   - Combines semantic relevance + ALS scores
   - Robust to cold-start scenarios
+  - Produces a unified ranking that balances relevance and personalization
 
-- 💡 **Explainability Layer**
+-  **Explainability Layer**
   - Generates structured explanations using:
     - Ratings
     - Review counts
     - Verified purchase ratio
     - Product features
 
-- 🧠 **LLM Enhancement**
-  - TinyLlama used for polishing explanations 
+-  **LLM Enhancement**
+  - TinyLlama used for polishing explanations
+  - Improves readability and natural language quality
 
 ---
 
@@ -47,9 +63,9 @@ This work follows a practical data analysis and machine learning pipeline, align
 - Merging datasets for enriched signals (ratings, reviews, etc.)
 
 ### 2. Semantic Retrieval
-- Product text → embeddings
-- Query → embedding
-- Similarity search → top-k candidates
+- Encoded product text into embeddings (Product text → embeddings)
+- Converted user queries into vector representations (Query → embedding)
+- Retrieved top-k similar products (Similarity search → top-k candidates)
 
 ### 3. Collaborative Filtering (ALS)
 - User-item interactions modeled
@@ -60,7 +76,7 @@ This work follows a practical data analysis and machine learning pipeline, align
 - Combines:
   - semantic_score
   - als_score
-- Produces final_score
+- Produces final_ranking_score
 
 ### 5. Explanation Layer
 - Feature extraction from product titles/descriptions
@@ -109,12 +125,12 @@ Wireless Kids Headphones with Microphones ranks first because it combines strong
 
 ## Current Status
 
-✅ Semantic retrieval  
-✅ ALS model  
-✅ Hybrid ranking  
-✅ Explanation layer  
-🔄 API integration (in progress)  
-🔄 Web interface (planned)  
+ Semantic retrieval  
+ ALS model  
+ Hybrid ranking  
+ Explanation layer  
+ API integration (in progress)  
+ Web interface (planned)  
 
 ---
 
@@ -132,6 +148,15 @@ Wireless Kids Headphones with Microphones ranks first because it combines strong
 
 Preye Nabena  
 MSc Artificial Intelligence & Machine Learning  
+
+---
+## Research Direction
+This project contributes to research in:
+
+- Recommender Systems
+- Natural Language Processing
+- Explainable AI
+- Intelligent Decision Support Systems
 
 ---
 

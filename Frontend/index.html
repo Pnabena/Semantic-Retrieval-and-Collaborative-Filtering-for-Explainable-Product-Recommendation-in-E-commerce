@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Explainable Product Search</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div>
+          <p class="eyebrow">Hybrid recommender demo</p>
+          <h1>Explainable Product Search</h1>
+        </div>
+        <!-- <div class="endpoint-pill" title="Configured in app.js">POST /search</div> -->
+        <div class="endpoint-pill" title="Static fallback demo">Static demo mode</div>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="search-panel" aria-labelledby="search-title">
+        <div class="search-copy">
+          <h2 id="search-title">Search products with transparent ranking</h2>
+          <!-- <p>Compare semantic relevance, collaborative filtering signal, trust evidence, and final hybrid match scores.</p> -->
+        </div>
+
+
+        <form id="search-form" class="search-form">
+          <label class="sr-only" for="search-input">Search query</label>
+          <input
+            id="search-input"
+            type="search"
+            name="query"
+            autocomplete="on"
+            placeholder="Select a demo query or search the saved examples? "
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+
+        <div class="example-row" aria-label="Example queries">
+          <div class="example-row" aria-label="Example queries">
+            <button
+              class="query-chip"
+              type="button"
+              data-query="wireless headphones for studying"
+            >
+              Wireless headphones
+            </button>
+          
+            <button
+              class="query-chip"
+              type="button"
+              data-query="gaming monitor"
+            >
+              Gaming monitor
+            </button>
+          
+            <button
+              class="query-chip"
+              type="button"
+              data-query="iron"
+            >
+              Iron
+            </button>
+          </div>
+      
+          <!-- <button class="query-chip" type="button">wireless headphones for studying</button>
+          <button class="query-chip" type="button">curved monitor for gaming</button>
+          <button class="query-chip" type="button">ergonomic mouse for wrist pain</button>
+          <button class="query-chip" type="button">affordable laptop</button> -->
+        </div>
+      </section>
+
+      <section id="status-region" class="status-region" aria-live="polite"></section>
+
+      <section id="overview-section" class="overview-section is-hidden" aria-labelledby="overview-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">AI overview</p>
+            <h2 id="overview-title">Recommendation rationale</h2>
+          </div>
+          <p id="result-count" class="result-count"></p>
+        </div>
+
+        <div class="overview-grid">
+          <article class="overview-card">
+            <h3>Summary</h3>
+            <p id="overview-text"></p>
+          </article>
+          <article class="overview-card">
+            <h3>Why the best result wins</h3>
+            <p id="why-best-text"></p>
+          </article>
+        </div>
+
+        <div id="quick-picks" class="quick-picks"></div>
+      </section>
+
+      <section class="results-section" aria-labelledby="results-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Ranked results</p>
+            <h2 id="results-title">Product matches</h2>
+          </div>
+        </div>
+        <div id="results-grid" class="results-grid"></div>
+      </section>
+    </main>
+
+    <template id="product-card-template">
+      <article class="product-card">
+        <div class="image-wrap"></div>
+        <div class="product-body">
+          <div class="product-topline">
+            <h3 class="product-title"></h3>
+            <span class="match-badge"></span>
+          </div>
+          <div class="product-meta"></div>
+          <div class="feature-list"></div>
+          <details class="match-details">
+            <summary>Match details</summary>
+            <dl></dl>
+          </details>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
